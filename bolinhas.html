@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Banana</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		body {
+			background: black;
+		}
+		.foguinho {
+			position: absolute;
+			bottom: 49px;
+			left: 40%;
+			width: 20%;
+			height: 80px;
+			overflow: hidden;
+		}
+		.grande {
+			width: 20px;
+			height: 20px;
+		}
+		.media {
+			width: 14px;
+			height: 14px;
+		}
+		.pequena {
+			width: 6px;
+			height: 6px;
+		}
+		.bolinha {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: rgba(51,228,10,0.7);
+			position: absolute;
+		}
+		.v1 {
+			animation: move 3s ease infinite;
+		}
+		.v2 {
+			animation: move 4s ease infinite;
+		}
+		.v3 {
+			animation: move 6s ease infinite;
+		}
+		.v4 {
+			animation: move 6.5s ease infinite;
+		}
+		.v5 {
+			animation: move 7.5s ease infinite;
+		}
+		.v6 {
+			animation: move 9s ease infinite;
+		}
+		.v7 {
+			animation: move 10s ease infinite;
+		}
+		@keyframes move {
+		  100% {
+		     transform: scale(0.4);
+		     bottom: 100%;
+		     opacity: 0;
+		     left: 40%;
+		  }
+		}
+
+		.bateria {
+			width: 68px;
+			height: 220px;
+			position: relative;
+			left: 37%;
+			top: 23%;
+		}
+		#cheia {
+			position: absolute;
+			height: 0;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			background: #f83c3c;
+			z-index: 1;
+			transition: 1s ease all;
+		}
+		#vazia {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			background: url(empty2.png) bottom;
+			z-index: 2;
+			transition: 1s ease all;
+		}
+		.button {
+			width: 101px;
+			height: 98px;
+			cursor: pointer;
+			position: fixed;
+			top: 32%;
+			right: 25%;
+			background: url(button.png) left no-repeat;
+		}
+		.button:active {
+			background-position: -101px 0;
+		}
+		.phone {
+			width: 261px;
+			height: 522px;
+			display: block;
+			margin: 100px auto 0;
+			background: url(phone.png);
+			position: relative;
+		}
+		.bright {
+			width: 261px;
+			height: 522px;
+			display: block;
+			position: absolute;
+			z-index: 5;
+			background: url(bright.png);
+			 pointer-events: none;
+		}
+		#aviso {
+			width: 195px;
+			height: 150px;
+			left: 31px;
+			top: 160px;
+			background: black;
+			border: 2px solid #a5a5a5;
+			position: absolute;
+			z-index: 4;
+			font-size: 12px;
+			font-family: sans-serif;
+			color: #d0d0d0;
+			opacity: 0;
+			transform: scale(0.7);
+			transition: .2s ease all;
+		}
+		#aviso.aparecer {
+			opacity: 1;
+			transform: scale(1);
+			left: 32px;
+		}
+		.cima {
+			width: 181px;
+			padding: 7px;
+			border-bottom: 1px solid #d0d0d0;
+			line-height: 20px;
+		}
+		img {
+			display: block;
+			margin-right: 10px;
+			float: left;
+		}
+		p {
+			margin: 0;
+			display: block;
+			padding: 10px;
+			height: 55px;
+			padding-bottom: 7px;
+			background: url(banana.png) no-repeat center bottom;
+		}
+		#ok {
+			display: block;
+			margin: 0 auto;
+			height: 30px;
+			line-height: 30px;
+			background: #f2f2f2;
+			line-height: 30px;
+			text-align: center;
+			width: 100px;
+			color: #3c3c3c;
+			margin-top: 13px;
+			cursor: pointer;
+		}
+		#banner {
+			display: none;
+			position: absolute;
+			width: 239px;
+			height: 419px;
+			left: 11px;
+			top: 54px;
+			z-index: 3;
+		}
+		.banner {
+			display: block;
+			position: absolute;
+			width: 59px;
+			height: 21px;
+			left: 101px;
+			bottom: 16px;
+			cursor: pointer;
+		}
+	</style>
+<head>
+<body>
+	<div class="phone">
+		<div id="aviso"><div class="cima"><img src="warning.png">Bateria cheia</div><p>A bateria já está cheia manolo</p><div id="ok" onClick="fechar()">OK</div></div>
+		<div class="bright"></div>
+		<div class="bateria">
+			<div id="cheia"></div>
+			<div id="vazia"></div>
+		</div>
+		<div class="button" onClick="aumentar()"></div>
+		<div class="foguinho">
+			<div class="bolinha grande v2" style="left:30%; bottom:-20%"></div>
+			<div class="bolinha grande v3" style="left:42%; bottom:-20%"></div>
+			<div class="bolinha grande v4" style="left:45.5%; bottom:-20%"></div>
+			<div class="bolinha grande v5" style="left:33%; bottom:-30%"></div>
+			<div class="bolinha grande v6" style="left:37%; bottom:-60%"></div>
+			<div class="bolinha grande v7" style="left:41%; bottom:-70%"></div>
+			<div class="bolinha grande v3" style="left:43%; bottom:-80%"></div>
+			<div class="bolinha grande v4" style="left:49%; bottom:-100%"></div>
+			<div class="bolinha grande v5" style="left:52%; bottom:-10%"></div>
+			<div class="bolinha grande v7" style="left:40%; bottom:-40%"></div>
+			<div class="bolinha media v3" style="left:25%; bottom:-40%"></div>
+			<div class="bolinha media v3" style="left:27%; bottom:-50%"></div>
+			<div class="bolinha media v4" style="left:31.5%; bottom:-60%"></div>
+			<div class="bolinha media v4" style="left:39%; bottom:-70%"></div>
+			<div class="bolinha media v5" style="left:45%; bottom:-100%"></div>
+			<div class="bolinha media v6" style="left:55%; bottom:-10%"></div>
+			<div class="bolinha pequena v1" style="left:21%; bottom:-30%"></div>
+			<div class="bolinha pequena v1" style="left:38%; bottom:-50%"></div>
+			<div class="bolinha pequena v2" style="left:46%; bottom:-80%"></div>
+			<div class="bolinha pequena v2" style="left:59%; bottom:-100%"></div>
+			<div class="bolinha pequena v4" style="left:63%; bottom:-70%"></div>
+			<div class="bolinha pequena v5" style="left:41%; bottom:-20%"></div>
+		</div>
+		<div id="banner"></iframe></div>
+		<a class="banner" onClick="verBanner()"></a>
+	</div>
+<script type="text/javascript">
+var esperar = 0;
+var contador = 0;
+var banners = 0;
+	function aumentar(){
+		if(esperar == 0){
+			voltas = contador * 360;
+			var vazia = document.getElementById('vazia').offsetHeight;
+			var cheia = document.getElementById('cheia').offsetHeight;
+			var altura = cheia + vazia * 0.2;
+			if(altura >= vazia) {
+				altura = vazia;
+				contador = contador + 1;
+				document.getElementById('cheia').style.transform = "rotate(" + voltas + "deg)";
+				document.getElementById('vazia').style.transform = "rotate(" + voltas + "deg)";
+				setTimeout(function(){ abrir(); }, 1000);
+			}
+			if(altura > 70) {
+				document.getElementById('cheia').style.background = "#2bd729";
+			}
+			document.getElementById('cheia').style.height = (altura) + "px";
+			setTimeout(function(){ esperar = 0; }, 1000);
+		}
+	}
+	function fechar() {
+		document.getElementById("aviso").className = "";
+	}
+	function abrir() {
+		document.getElementById("aviso").className = "aparecer";
+	}
+	function verBanner() {
+		if(banners == 1) {
+			document.getElementById("banner").style.display = "none";
+			banners = 0;
+		}
+		else {
+			document.getElementById("banner").style.display = "block";
+			document.getElementById("banner").innerHTML = '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/8qnQz8kxte0?autoplay=1" frameborder="0" allowfullscreen>';
+			banners = 1;
+		}
+	}
+</script>
+</body>
+</html>
